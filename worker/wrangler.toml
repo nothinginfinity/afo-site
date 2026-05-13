@@ -1,0 +1,32 @@
+# Wrangler config for AFO Audit Intake Worker
+# Deploy: wrangler deploy --config worker/wrangler.toml
+
+name = "afo-audit-intake"
+main = "worker/audit-intake.js"
+compatibility_date = "2024-09-23"
+
+# Route: serve /api/audit-request from the same Workers domain
+# If using a custom domain or Pages Functions, adjust the route accordingly.
+# routes = [
+#   { pattern = "afo-site.jaredtechfit.workers.dev/api/*", zone_name = "workers.dev" }
+# ]
+
+# Secrets — set via: wrangler secret put GITHUB_TOKEN
+# Do NOT put real values here. Use wrangler secret or CF Dashboard.
+# Required:
+#   GITHUB_TOKEN        (fine-grained PAT, see docs/phase-2-setup.md)
+#   GITHUB_REPO         = "nothinginfinity/afo-site"
+#   GITHUB_INTAKE_MODE  = "issue" or "dispatch"
+#   ALLOWED_ORIGIN      = "https://afo-site.jaredtechfit.workers.dev"
+# Optional:
+#   RATE_LIMIT_KV       (KV namespace binding, see below)
+
+[vars]
+GITHUB_REPO = "nothinginfinity/afo-site"
+GITHUB_INTAKE_MODE = "issue"
+ALLOWED_ORIGIN = "https://afo-site.jaredtechfit.workers.dev"
+
+# Uncomment to enable KV rate limiting:
+# [[kv_namespaces]]
+# binding = "RATE_LIMIT_KV"
+# id = "YOUR_KV_NAMESPACE_ID_HERE"

@@ -33,6 +33,7 @@
     <div class="page-header">
       <div class="page-header__eyebrow">
         <span class="tag tag--accent">Free</span>
+        <span class="tag tag--green" style="margin-left: var(--space-2);">Live</span>
       </div>
       <h1 class="page-header__title">Get a Free AI Visibility Audit</h1>
       <p class="page-header__desc">Most websites were designed for humans and Google. AFO adds an AI-readable business layer so assistants and AI search systems can understand what you do, cite you accurately, and recommend you with confidence.</p>
@@ -65,13 +66,23 @@
         <label class="form-label" for="audit-category">Business Category</label>
         <input class="form-input" type="text" id="audit-category" name="category" placeholder="e.g. Business Credit, Real Estate, Marketing Agency">
       </div>
-      <button type="submit" class="btn btn--primary" style="width:100%; justify-content: center; margin-top: var(--space-2);">Request Free Audit</button>
+
+      <!-- Honeypot: hidden from real users, bots fill it in -->
+      <div style="position:absolute; left:-9999px; opacity:0; pointer-events:none;" aria-hidden="true">
+        <label for="audit-website-confirm">Leave this blank</label>
+        <input type="text" id="audit-website-confirm" name="website_confirm" tabindex="-1" autocomplete="off">
+      </div>
+
+      <button type="submit" class="btn btn--primary" style="width:100%; justify-content: center; margin-top: var(--space-2);" id="audit-submit-btn">
+        Request Free Audit
+      </button>
     </form>
 
     <div id="audit-result" style="display:none; margin-top: var(--space-6);"></div>
 
     <p style="font-size: var(--text-xs); color: var(--text-faint); margin-top: var(--space-6); line-height: 1.6;">
-      Demo mode: form submissions are captured locally and not sent to any external server. In the live version, this will submit to the AFO audit queue and you will receive a report within 24&ndash;48 hours.
+      Submissions are sent to the AFO audit queue. You will receive your report within 24&ndash;48 hours.
+      No payment required. No spam.
     </p>
   </div>
 </main>
@@ -85,6 +96,113 @@
   </div>
 </footer>
 
-<script src="/assets/app.js" defer></script>
+<script>
+(function () {
+  'use strict';
+
+  // Update this URL once the Worker is deployed and routed.
+  // Options:
+  //   Same-domain Pages Function: '/api/audit-request'
+  //   Separate Worker URL:        'https://afo-audit-intake.YOUR_CF_SUBDOMAIN.workers.dev/api/audit-request'
+  var AUDIT_ENDPOINT = '/api/audit-request';
+
+  var form = document.getElementById('audit-form');
+  var result = document.getElementById('audit-result');
+  var submitBtn = document.getElementById('audit-submit-btn');
+
+  if (!form) return;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    var url = document.getElementById('audit-url').value.trim();
+    var name = document.getElementById('audit-name').value.trim();
+    var email = document.getElementById('audit-email').value.trim();
+    var category = document.getElementById('audit-category').value.trim();
+    var honeypot = document.getElementById('audit-website-confirm').value;
+
+    // Client-side validation
+    if (!url || !url.startsWith('http')) {
+      showMsg('error', 'Please enter a valid website URL (must start with http or https).');
+      return;
+    }
+    if (!name || name.length < 2) {
+      showMsg('error', 'Please enter your business name.');
+      return;
+    }
+
+    // Honeypot (client-side mirror of server-side check)
+    if (honeypot) return;
+
+    // Loading state
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    hideMsg();
+
+    fetch(AUDIT_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        url: url,
+        name: name,
+        email: email,
+        category: category,
+        website_confirm: honeypot
+      })
+    })
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      if (data.ok) {
+        form.style.display = 'none';
+        showMsg(
+          'success',
+          '\u2705 Audit request received.' +
+          (data.request_id ? ' Reference: ' + data.request_id + '.' : '') +
+          ' You will be contacted within 24\u201348 hours with your AI Visibility Score and report.'
+        );
+      } else {
+        var detail = data.details ? ' ' + data.details.join('. ') : '';
+        showMsg('error', (data.error || 'Submission failed.') + detail);
+        resetBtn();
+      }
+    })
+    .catch(function (err) {
+      console.error('Audit submit error:', err);
+      showMsg('error', 'Could not reach the audit server. Please try again or email us directly.');
+      resetBtn();
+    });
+  });
+
+  function showMsg(type, text) {
+    result.textContent = text;
+    result.style.display = 'block';
+    result.style.padding = '1rem 1.25rem';
+    result.style.borderRadius = '0.75rem';
+    result.style.fontSize = 'var(--text-sm)';
+    result.style.lineHeight = '1.6';
+    result.style.marginTop = 'var(--space-6)';
+    if (type === 'success') {
+      result.style.background = 'rgba(74,222,128,0.1)';
+      result.style.border = '1px solid rgba(74,222,128,0.25)';
+      result.style.color = '#4ade80';
+    } else {
+      result.style.background = 'rgba(248,113,113,0.1)';
+      result.style.border = '1px solid rgba(248,113,113,0.25)';
+      result.style.color = '#f87171';
+    }
+  }
+
+  function hideMsg() {
+    result.style.display = 'none';
+  }
+
+  function resetBtn() {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Request Free Audit';
+  }
+
+})();
+</script>
+
 </body>
 </html>

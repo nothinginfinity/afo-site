@@ -1,0 +1,112 @@
+# AFO Audit Queue — GitHub Actions Workflow
+# Triggered by:
+#   1. workflow_dispatch (from Cloudflare Worker when GITHUB_INTAKE_MODE=dispatch)
+#   2. Manually via GitHub UI
+#   3. Issue label (future: label-triggered auto-audit)
+#
+# Phase 2A: Receives request, validates inputs, commits a stub audit record.
+# Phase 2B (future): Runs actual URL crawl and scores AFO file presence.
+
+name: AFO Audit Queue
+
+on:
+  workflow_dispatch:
+    inputs:
+      request_id:
+        description: 'Audit request ID'
+        required: true
+        type: string
+      site_url:
+        description: 'Website URL to audit'
+        required: true
+        type: string
+      business_name:
+        description: 'Business name'
+        required: true
+        type: string
+      contact_email:
+        description: 'Contact email (optional)'
+        required: false
+        type: string
+      business_category:
+        description: 'Business category (optional)'
+        required: false
+        type: string
+      received_at:
+        description: 'ISO timestamp from intake Worker'
+        required: false
+        type: string
+
+jobs:
+  process-audit-request:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Validate inputs
+        run: |
+          echo "Request ID: ${{ inputs.request_id }}"
+          echo "Site URL: ${{ inputs.site_url }}"
+          echo "Business: ${{ inputs.business_name }}"
+          if [[ -z "${{ inputs.request_id }}" || -z "${{ inputs.site_url }}" ]]; then
+            echo "ERROR: request_id and site_url are required"
+            exit 1
+          fi
+
+      - name: Write stub audit record
+        run: |
+          mkdir -p data/audits
+          cat > data/audits/${{ inputs.request_id }}.json << 'ENDJSON'
+          {
+            "schema": "afo-audit/1.0",
+            "audit_id": "${{ inputs.request_id }}",
+            "site": "${{ inputs.site_url }}",
+            "client": "${{ inputs.business_name }}",
+            "category": "${{ inputs.business_category }}",
+            "contact_email": "${{ inputs.contact_email }}",
+            "received_at": "${{ inputs.received_at }}",
+            "queued_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+            "status": "queued",
+            "score": null,
+            "max_score": 18,
+            "notes": "Stub record. Full audit pending Phase 2B."
+          }
+          ENDJSON
+
+      - name: Write stub report
+        run: |
+          mkdir -p data/reports
+          cat > data/reports/${{ inputs.request_id }}-report.json << 'ENDJSON'
+          {
+            "schema": "afo-report/1.0",
+            "report_id": "${{ inputs.request_id }}-report",
+            "site": "${{ inputs.site_url }}",
+            "client": "${{ inputs.business_name }}",
+            "generated_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+            "status": "queued",
+            "baseline_score": null,
+            "projected_score": null,
+            "notes": "Report stub. Awaiting full audit run (Phase 2B)."
+          }
+          ENDJSON
+
+      - name: Commit audit record
+        run: |
+          git config user.name "afo-audit-bot"
+          git config user.email "actions@github.com"
+          git add data/audits/${{ inputs.request_id }}.json
+          git add data/reports/${{ inputs.request_id }}-report.json
+          git commit -m "audit(queue): stub record for ${{ inputs.request_id }} — ${{ inputs.site_url }}"
+          git push
+
+      - name: Comment on related issue (if issue mode was used)
+        if: ${{ always() }}
+        run: |
+          echo "Audit stub committed for ${{ inputs.request_id }}"
+          echo "Site: ${{ inputs.site_url }}"
+          echo "Status: queued — awaiting Phase 2B full crawl"
