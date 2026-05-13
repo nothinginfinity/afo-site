@@ -1,0 +1,41 @@
+{
+  "schema": "afo-context/1.0",
+  "name": "AFO Site",
+  "url": "https://afo-site.pages.dev",
+  "category": "AI Visibility / Agent Feed Optimization",
+  "purpose": "Public proof site and free-audit funnel for Agent Feed Optimization",
+  "description": "AFO (Agent Feed Optimization) helps businesses become easier for AI assistants, AI search engines, and LLM-powered browsers to discover, understand, cite, and recommend. This site is the live proof installation.",
+  "audience": [
+    "small businesses",
+    "service businesses",
+    "creators",
+    "agencies"
+  ],
+  "primary_cta": {
+    "label": "Get a Free AI Visibility Audit",
+    "url": "/free-audit.html"
+  },
+  "secondary_cta": {
+    "label": "View the Proof Dashboard",
+    "url": "/dashboard/"
+  },
+  "pages": [
+    { "label": "Homepage", "url": "/", "description": "Landing page — What AFO is and why it matters" },
+    { "label": "Free Audit", "url": "/free-audit.html", "description": "Request a free AI Visibility Audit for your website" },
+    { "label": "Proof", "url": "/proof.html", "description": "Live AFO file checklist and proof-of-installation" },
+    { "label": "Dashboard", "url": "/dashboard/", "description": "Demo audit dashboards with before/after scoring" },
+    { "label": "TrueBuild Case Study", "url": "/case-studies/truebuild.html", "description": "AFO package generated for TrueBuild Business Credit" },
+    { "label": "Pricing", "url": "/pricing.html", "description": "AFO service tiers" },
+    { "label": "Contact", "url": "/contact.html", "description": "Get in touch about AFO for your business" }
+  ],
+  "afo_files_installed": [
+    "/llms.txt",
+    "/.well-known/agent-context.json",
+    "/.well-known/agent-actions.json",
+    "/.well-known/agent-policy.json",
+    "/.well-known/context-cookie.json",
+    "/robots.txt",
+    "/sitemap-agent.xml",
+    "/data/audits/demo-audit.json"
+  ]
+}

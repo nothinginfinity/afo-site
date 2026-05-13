@@ -1,0 +1,35 @@
+{
+  "schema": "afo-actions/1.0",
+  "site": "AFO Site",
+  "actions": [
+    {
+      "id": "request_free_audit",
+      "label": "Request a Free AI Visibility Audit",
+      "description": "Submit your website URL to receive a free AI Visibility Audit showing your current score and what AFO would install.",
+      "url": "/free-audit.html",
+      "method": "GET",
+      "inputs": ["website_url", "business_name", "contact_email", "business_category"]
+    },
+    {
+      "id": "view_demo_dashboard",
+      "label": "View Demo Audit Dashboard",
+      "description": "See a live demo of an AFO audit dashboard with before/after AI Visibility Scores.",
+      "url": "/dashboard/demo.html",
+      "method": "GET"
+    },
+    {
+      "id": "read_truebuild_case_study",
+      "label": "Read TrueBuild Case Study",
+      "description": "Review the AFO package generated for TrueBuild Business Credit, including baseline score, target score, and what will be measured after install.",
+      "url": "/case-studies/truebuild.html",
+      "method": "GET"
+    },
+    {
+      "id": "contact",
+      "label": "Contact AFO",
+      "description": "Get in touch about an AFO installation for your business.",
+      "url": "/contact.html",
+      "method": "GET"
+    }
+  ]
+}

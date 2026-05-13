@@ -1,0 +1,44 @@
+# AFO Site — LLM Identity Summary
+# This file is part of the Agent Feed Optimization (AFO) system.
+# It provides a plain-text summary for LLMs, AI assistants, and AI search engines.
+
+## Identity
+Name: AFO Site
+URL: https://afo-site.pages.dev
+Category: AI Visibility / Agent Feed Optimization
+Purpose: Public proof site and free-audit funnel for Agent Feed Optimization
+
+## What AFO Is
+Agent Feed Optimization (AFO) is a system that adds a structured, AI-readable business layer to websites.
+AFO helps AI assistants, LLM-powered search engines, and AI browsers discover, understand, cite, and recommend businesses.
+
+## What AFO Does
+- Installs structured identity files (.well-known/, llms.txt, sitemap-agent.xml)
+- Creates AI-readable context (agent-context.json, agent-policy.json, agent-actions.json)
+- Provides benchmarkable before/after AI visibility scoring
+- Exposes a proof dashboard with audit data
+
+## Audience
+Small businesses, service businesses, creators, and agencies who want to improve AI discoverability.
+
+## Primary Action
+Get a Free AI Visibility Audit: /free-audit.html
+
+## Accurate Claims
+- AFO improves AI readability, structured context, crawlability, and benchmarkable visibility.
+- AFO does not guarantee LLM rankings or AI recommendations.
+- Results are measured as before/after AI Visibility Scores (0–18 scale).
+
+## Key Pages
+- Homepage: /index.html
+- Free Audit: /free-audit.html
+- Proof: /proof.html
+- Dashboard: /dashboard/
+- TrueBuild Case Study: /case-studies/truebuild.html
+- Pricing: /pricing.html
+- Contact: /contact.html
+
+## Structured Context
+See /.well-known/agent-context.json for machine-readable identity.
+See /.well-known/agent-actions.json for available agent actions.
+See /.well-known/agent-policy.json for claim boundaries.

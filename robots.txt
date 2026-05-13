@@ -1,0 +1,17 @@
+# robots.txt — AFO Site
+# Standard crawlers welcome.
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://afo-site.pages.dev/sitemap-agent.xml
+
+# AI-Readable Files
+# This site exposes structured AI context at the following paths:
+# /.well-known/agent-context.json  — structured business identity
+# /.well-known/agent-actions.json  — available actions for AI agents
+# /.well-known/agent-policy.json   — compliance and claim boundaries
+# /.well-known/context-cookie.json — concise identity memory object
+# /llms.txt                        — plain-text LLM identity summary
+# /sitemap-agent.xml               — agent-optimized sitemap
