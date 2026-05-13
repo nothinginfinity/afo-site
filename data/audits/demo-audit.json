@@ -1,0 +1,29 @@
+{
+  "schema": "afo-audit/1.0",
+  "audit_id": "demo-001",
+  "site": "demo-business.example.com",
+  "category": "Service Business",
+  "audited_at": "2026-05-13T00:00:00Z",
+  "status": "pre-install",
+  "score": 3,
+  "max_score": 18,
+  "grade": "F",
+  "installed_files": [
+    "robots.txt",
+    "sitemap.xml",
+    "index.html"
+  ],
+  "missing_files": [
+    "llms.txt",
+    "/.well-known/agent-context.json",
+    "/.well-known/agent-actions.json",
+    "/.well-known/agent-policy.json",
+    "/.well-known/context-cookie.json",
+    "sitemap-agent.xml",
+    "/data/audits/ (dashboard JSON)"
+  ],
+  "recommended_package": "Starter AFO",
+  "projected_score_min": 16,
+  "projected_score_max": 18,
+  "notes": "This is a demo audit for illustration purposes. Scores represent presence and quality of structured AI context files."
+}

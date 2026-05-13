@@ -1,0 +1,26 @@
+{
+  "schema": "afo-audit/1.0",
+  "audit_id": "truebuild-after-001",
+  "site": "truebuildbusinesscredit.com",
+  "client": "TrueBuild Business Credit",
+  "category": "Business Credit Education and Advisory",
+  "audited_at": null,
+  "status": "projected",
+  "score": null,
+  "projected_score": 18,
+  "max_score": 18,
+  "projected_grade": "A",
+  "projected_installed_files": [
+    "llms.txt",
+    "/.well-known/agent-context.json",
+    "/.well-known/agent-actions.json",
+    "/.well-known/agent-policy.json",
+    "/.well-known/context-cookie.json",
+    "sitemap-agent.xml",
+    "robots.txt (with AI annotations)",
+    "/data/audits/truebuild-after.json",
+    "/data/reports/truebuild-report.json",
+    "JSON-LD schema markup"
+  ],
+  "notes": "Projected post-install audit. Actual score will be recorded after confirmed public installation."
+}

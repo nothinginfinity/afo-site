@@ -1,0 +1,25 @@
+{
+  "schema": "afo-report/1.0",
+  "report_id": "truebuild-report-001",
+  "client": "TrueBuild Business Credit",
+  "site": "truebuildbusinesscredit.com",
+  "category": "Business Credit Education and Advisory",
+  "generated_at": "2026-05-13T00:00:00Z",
+  "baseline_score": 0,
+  "projected_score": 18,
+  "max_score": 18,
+  "improvement": "+18 points",
+  "package_generated": "Full AFO Package (10 files)",
+  "package_status": "generated_approved_demo",
+  "install_status": "pending",
+  "summary": "TrueBuild Business Credit had zero AI-readable files installed. A complete 10-file AFO package was generated and approved for demo. Full install is pending. Projected post-install score: 18/18.",
+  "compliance_note": "TrueBuild Business Credit is a business credit education and advisory service. Not a bank, lender, or credit-issuing institution. No credit score outcomes are guaranteed. This report describes AI visibility improvements only.",
+  "accuracy_statement": "AFO improves AI readability, crawlability, structured context, and benchmarkable visibility. It does not guarantee LLM rankings or AI recommendations.",
+  "measurement_plan": [
+    "File presence verification at correct paths",
+    "Before/after AI Visibility Score comparison",
+    "AI crawler access log monitoring (Phase 4)",
+    "Prompt testing before/after (Phase 4)"
+  ],
+  "cta": "/free-audit.html"
+}

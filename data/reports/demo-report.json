@@ -1,0 +1,15 @@
+{
+  "schema": "afo-report/1.0",
+  "report_id": "demo-report-001",
+  "site": "demo-business.example.com",
+  "category": "Service Business",
+  "generated_at": "2026-05-13T00:00:00Z",
+  "baseline_score": 3,
+  "projected_score": 18,
+  "max_score": 18,
+  "improvement": "+15 points",
+  "package_recommended": "Starter AFO",
+  "summary": "This demo business has minimal AI visibility. 7 of 10 AFO files are missing. Installing the Starter AFO package is projected to improve the AI Visibility Score from 3/18 to 16-18/18.",
+  "accuracy_statement": "AFO improves AI readability, crawlability, structured context, and benchmarkable visibility. It does not guarantee LLM rankings or AI recommendations.",
+  "cta": "/free-audit.html"
+}

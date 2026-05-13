@@ -1,0 +1,32 @@
+{
+  "schema": "afo-audit/1.0",
+  "audit_id": "truebuild-before-001",
+  "site": "truebuildbusinesscredit.com",
+  "client": "TrueBuild Business Credit",
+  "category": "Business Credit Education and Advisory",
+  "audited_at": "2026-05-13T00:00:00Z",
+  "status": "pre-install",
+  "score": 0,
+  "max_score": 18,
+  "grade": "F",
+  "installed_files": [],
+  "missing_files": [
+    "llms.txt",
+    "/.well-known/agent-context.json",
+    "/.well-known/agent-actions.json",
+    "/.well-known/agent-policy.json",
+    "/.well-known/context-cookie.json",
+    "sitemap-agent.xml",
+    "robots.txt (AI annotations missing)",
+    "/data/audits/",
+    "/data/reports/",
+    "JSON-LD schema markup"
+  ],
+  "recommended_package": "Full AFO Package (10 files)",
+  "projected_score_min": 18,
+  "projected_score_max": 18,
+  "compliance_note": "TrueBuild is a business credit education and advisory service. Not a bank, lender, or credit-issuing institution. No credit score outcomes are guaranteed.",
+  "package_status": "generated_approved_demo",
+  "install_status": "pending",
+  "notes": "Baseline audit conducted before AFO package generation. Files not publicly installed unless explicitly confirmed."
+}
