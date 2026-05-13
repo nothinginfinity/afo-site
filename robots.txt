@@ -5,7 +5,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://afo-site.pages.dev/sitemap-agent.xml
+Sitemap: https://afo-site.jaredtechfit.workers.dev/sitemap-agent.xml
 
 # AI-Readable Files
 # This site exposes structured AI context at the following paths:

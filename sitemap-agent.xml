@@ -3,42 +3,42 @@
 <!-- This sitemap is designed for AI crawlers and agents as well as standard search engines. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://afo-site.pages.dev/</loc>
+    <loc>https://afo-site.jaredtechfit.workers.dev/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://afo-site.pages.dev/free-audit.html</loc>
+    <loc>https://afo-site.jaredtechfit.workers.dev/free-audit.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://afo-site.pages.dev/proof.html</loc>
+    <loc>https://afo-site.jaredtechfit.workers.dev/proof.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://afo-site.pages.dev/dashboard/</loc>
+    <loc>https://afo-site.jaredtechfit.workers.dev/dashboard/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://afo-site.pages.dev/dashboard/demo.html</loc>
+    <loc>https://afo-site.jaredtechfit.workers.dev/dashboard/demo.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://afo-site.pages.dev/case-studies/truebuild.html</loc>
+    <loc>https://afo-site.jaredtechfit.workers.dev/case-studies/truebuild.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://afo-site.pages.dev/pricing.html</loc>
+    <loc>https://afo-site.jaredtechfit.workers.dev/pricing.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://afo-site.pages.dev/contact.html</loc>
+    <loc>https://afo-site.jaredtechfit.workers.dev/contact.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

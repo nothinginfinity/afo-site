@@ -1,7 +1,7 @@
 {
   "schema": "afo-context/1.0",
   "name": "AFO Site",
-  "url": "https://afo-site.pages.dev",
+  "url": "https://afo-site.jaredtechfit.workers.dev",
   "category": "AI Visibility / Agent Feed Optimization",
   "purpose": "Public proof site and free-audit funnel for Agent Feed Optimization",
   "description": "AFO (Agent Feed Optimization) helps businesses become easier for AI assistants, AI search engines, and LLM-powered browsers to discover, understand, cite, and recommend. This site is the live proof installation.",
