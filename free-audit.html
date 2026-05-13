@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free AI Visibility Audit &mdash; AFO</title>
+  <meta name="description" content="Request a free AI Visibility Audit. Find out your score and what AFO would install to improve AI discoverability.">
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+
+<a href="#main" class="sr-only">Skip to content</a>
+
+<nav class="nav" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">
+        <div class="nav__logo-mark" aria-hidden="true">AF</div>
+        <span>AFO</span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="/proof.html">Proof</a></li>
+        <li><a href="/dashboard/">Dashboard</a></li>
+        <li><a href="/pricing.html">Pricing</a></li>
+      </ul>
+      <a href="/contact.html" class="nav__cta">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container container--narrow">
+    <div class="page-header">
+      <div class="page-header__eyebrow">
+        <span class="tag tag--accent">Free</span>
+      </div>
+      <h1 class="page-header__title">Get a Free AI Visibility Audit</h1>
+      <p class="page-header__desc">Most websites were designed for humans and Google. AFO adds an AI-readable business layer so assistants and AI search systems can understand what you do, cite you accurately, and recommend you with confidence.</p>
+    </div>
+
+    <div class="card" style="margin-bottom: var(--space-8);">
+      <p class="card__desc">Your audit will include:
+        <br><br>
+        &bull; Your current AI Visibility Score (0&ndash;18)<br>
+        &bull; Which AFO files are missing or incomplete<br>
+        &bull; Your projected score after AFO install<br>
+        &bull; A recommended package tailored to your business
+      </p>
+    </div>
+
+    <form id="audit-form" novalidate>
+      <div class="form-group">
+        <label class="form-label" for="audit-url">Website URL <span aria-hidden="true" style="color:var(--accent)">*</span></label>
+        <input class="form-input" type="url" id="audit-url" name="url" placeholder="https://yourbusiness.com" required autocomplete="url">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="audit-name">Business Name <span aria-hidden="true" style="color:var(--accent)">*</span></label>
+        <input class="form-input" type="text" id="audit-name" name="name" placeholder="Acme Services LLC" required autocomplete="organization">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="audit-email">Contact Email</label>
+        <input class="form-input" type="email" id="audit-email" name="email" placeholder="you@yourbusiness.com" autocomplete="email">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="audit-category">Business Category</label>
+        <input class="form-input" type="text" id="audit-category" name="category" placeholder="e.g. Business Credit, Real Estate, Marketing Agency">
+      </div>
+      <button type="submit" class="btn btn--primary" style="width:100%; justify-content: center; margin-top: var(--space-2);">Request Free Audit</button>
+    </form>
+
+    <div id="audit-result" style="display:none; margin-top: var(--space-6);"></div>
+
+    <p style="font-size: var(--text-xs); color: var(--text-faint); margin-top: var(--space-6); line-height: 1.6;">
+      Demo mode: form submissions are captured locally and not sent to any external server. In the live version, this will submit to the AFO audit queue and you will receive a report within 24&ndash;48 hours.
+    </p>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom" style="border-top:none; padding-top:0;">
+      <a href="/" style="color:var(--text-muted); font-size: var(--text-xs);">&larr; Back to AFO</a>
+      <span style="font-size: var(--text-xs); color: var(--text-faint);">&copy; 2026 Agent Feed Optimization</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/app.js" defer></script>
+</body>
+</html>

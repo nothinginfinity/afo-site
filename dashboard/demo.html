@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo Audit Dashboard &mdash; AFO</title>
+  <meta name="description" content="Demo AFO audit dashboard. AI Visibility Score: 3/18. See missing files and projected after-install score.">
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+
+<a href="#main" class="sr-only">Skip to content</a>
+
+<nav class="nav" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">
+        <div class="nav__logo-mark" aria-hidden="true">AF</div>
+        <span>AFO</span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="/dashboard/">All Dashboards</a></li>
+        <li><a href="/proof.html">Proof</a></li>
+        <li><a href="/pricing.html">Pricing</a></li>
+      </ul>
+      <a href="/free-audit.html" class="nav__cta">Free Audit</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="container">
+    <div class="dashboard-header">
+      <span class="tag">Demo</span>
+      <h1 class="page-header__title" style="margin-top: var(--space-3);">Demo Business &mdash; AI Visibility Audit</h1>
+      <p class="text-muted" style="font-size: var(--text-sm); margin-top: var(--space-2);">Audited: May 2026 &nbsp;&bull;&nbsp; Domain: demo-business.example.com &nbsp;&bull;&nbsp; Category: Service Business</p>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi">
+        <p class="kpi__label">Current Score</p>
+        <p class="kpi__value kpi__value--accent" id="demo-score">3 / 18</p>
+        <p class="kpi__sub">Before AFO install</p>
+      </div>
+      <div class="kpi">
+        <p class="kpi__label">Projected Score</p>
+        <p class="kpi__value kpi__value--green">16&ndash;18 / 18</p>
+        <p class="kpi__sub">After full AFO install</p>
+      </div>
+      <div class="kpi">
+        <p class="kpi__label">Files Missing</p>
+        <p class="kpi__value" style="color: #f87171;">7</p>
+        <p class="kpi__sub">of 10 AFO files</p>
+      </div>
+      <div class="kpi">
+        <p class="kpi__label">Package</p>
+        <p class="kpi__value" style="font-size: var(--text-base);">Starter AFO</p>
+        <p class="kpi__sub">Recommended tier</p>
+      </div>
+    </div>
+
+    <h2 style="font-size: var(--text-lg); font-weight: 700; color: var(--text); margin-bottom: var(--space-4);">Missing Files</h2>
+    <ul class="missing-list" id="demo-missing" role="list">
+      <li class="missing-list__item">llms.txt</li>
+      <li class="missing-list__item">/.well-known/agent-context.json</li>
+      <li class="missing-list__item">/.well-known/agent-actions.json</li>
+      <li class="missing-list__item">/.well-known/agent-policy.json</li>
+      <li class="missing-list__item">/.well-known/context-cookie.json</li>
+      <li class="missing-list__item">sitemap-agent.xml</li>
+      <li class="missing-list__item">/data/audits/ (dashboard JSON)</li>
+    </ul>
+
+    <div class="divider"></div>
+
+    <h2 style="font-size: var(--text-lg); font-weight: 700; color: var(--text); margin-bottom: var(--space-4);">Recommended Package</h2>
+    <div class="card" style="max-width: 560px;">
+      <p class="card__title">Starter AFO Package</p>
+      <p class="card__desc" style="margin-top: var(--space-3);">Generate and install all 10 AFO files customized to this business. Projected score improvement: <strong style="color: var(--green);">+13&ndash;15 points</strong>.</p>
+      <div style="margin-top: var(--space-5);">
+        <a href="/free-audit.html" class="btn btn--primary">Request Installation &rarr;</a>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top: var(--space-6); background: var(--surface-2); border-color: rgba(91,141,239,0.15);">
+      <p style="font-size: var(--text-xs); color: var(--text-faint); line-height: 1.6;">
+        <strong style="color: var(--text-muted);">Note:</strong> AI Visibility Scores (0&ndash;18) measure the presence and quality of structured AFO files installed on a site. They are not official metrics from any AI company. AFO improves AI readability and benchmarkable visibility &mdash; it does not guarantee LLM rankings or AI recommendations.
+      </p>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom" style="border-top:none; padding-top:0;">
+      <a href="/dashboard/" style="color:var(--text-muted); font-size: var(--text-xs);">&larr; All Dashboards</a>
+      <span style="font-size: var(--text-xs); color: var(--text-faint);">&copy; 2026 Agent Feed Optimization</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/app.js" defer></script>
+</body>
+</html>
